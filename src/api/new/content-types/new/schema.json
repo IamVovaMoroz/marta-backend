@@ -55,6 +55,29 @@
       },
       "type": "richtext",
       "required": true
+    },
+    "isFutured": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "boolean",
+      "default": false
+    },
+    "Category": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "good",
+        "bad",
+        "perfect"
+      ],
+      "required": true
     }
   }
 }

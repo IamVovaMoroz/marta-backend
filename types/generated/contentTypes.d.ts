@@ -798,6 +798,20 @@ export interface ApiNewNew extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    isFutured: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
+    Category: Attribute.Enumeration<['good', 'bad', 'perfect']> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -811,6 +825,35 @@ export interface ApiNewNew extends Schema.CollectionType {
       'api::new.new'
     >;
     locale: Attribute.String;
+  };
+}
+
+export interface ApiSendSend extends Schema.CollectionType {
+  collectionName: 'sends';
+  info: {
+    singularName: 'send';
+    pluralName: 'sends';
+    displayName: 'send';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    mail: Attribute.Email & Attribute.Required;
+    name: Attribute.String & Attribute.Required;
+    summary: Attribute.RichText &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::send.send', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::send.send', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
   };
 }
 
@@ -832,6 +875,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::marta.marta': ApiMartaMarta;
       'api::new.new': ApiNewNew;
+      'api::send.send': ApiSendSend;
     }
   }
 }
