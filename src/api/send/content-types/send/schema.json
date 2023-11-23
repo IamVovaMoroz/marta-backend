@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sends",
+  "info": {
+    "singularName": "send",
+    "pluralName": "sends",
+    "displayName": "send",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "mail": {
+      "type": "email",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "summary": {
+      "type": "richtext",
+      "required": true,
+      "maxLength": 255
+    }
+  }
+}
