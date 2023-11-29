@@ -363,7 +363,7 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
 }
 
 
-=======
+
 export interface ApiContactContact extends Schema.CollectionType {
   collectionName: 'contacts';
   info: {
@@ -1005,7 +1005,7 @@ declare module '@strapi/types' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
 
-=======
+
       'api::contact.contact': ApiContactContact;
       'api::marta.marta': ApiMartaMarta;
 
