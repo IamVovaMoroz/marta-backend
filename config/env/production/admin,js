@@ -17,7 +17,7 @@
 
 module.exports = ({ env }) => ({
   auth: {
-    secret: env('ADMIN_JWT_SECRET', '3005f8e3851145c9e8e012f6e63bfdf2'),
+    secret: env('ADMIN_JWT_SECRET'),
   },
   url: "/dashboard",
   apiToken: {
