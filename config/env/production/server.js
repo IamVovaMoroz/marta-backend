@@ -1,3 +1,3 @@
 module.exports = ({ env }) => ({
-    url: env("PUBLIC_SERVER_URL", ""),
-  });
+  url: env('PUBLIC_SERVER_URL', '')
+})
