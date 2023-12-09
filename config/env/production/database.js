@@ -1,46 +1,46 @@
-// const { parse } = require('pg-connection-string')
+const { parse } = require('pg-connection-string')
 
-// module.exports = ({ env }) => {
-//   const { host, port, database, user, password, ssl } = parse(env('DATABASE_URL'))
-//   return {
-//     connection: {
-//       client: 'postgres',
-//       connection: {
-//         host,
-//         port,
-//         database,
-//         user,
-//         password,
-//         ssl: false,
-//       },
+module.exports = ({ env }) => {
+  const { host, port, database, user, password, ssl } = parse(env('DATABASE_URL'))
+  return {
+    connection: {
+      client: 'postgres',
+      connection: {
+        host,
+        port,
+        database,
+        user,
+        password,
+        ssl: { rejectUnauthorized: env('DATABASE_SSL', false) === 'true' },
+      },
 
-//       debug: false
-//     }
-//   }
-// }
+      debug: false
+    }
+  }
+}
 
 // ----------------------------------------
 
 // const { parse } = require('pg-connection-string')
 
-module.exports = ({ env }) => ({
-  connection: {
-    client: 'postgres',
-    connection: {
-      host: env('DATABASE_HOST', '127.0.0.1'),
-      port: env.int('DATABASE_PORT'),
-      ssl: { rejectUnauthorized: env('DATABASE_SSL', false) === 'true' },
+// module.exports = ({ env }) => ({
+//   connection: {
+//     client: 'postgres',
+//     connection: {
+//       host: env('DATABASE_HOST', '127.0.0.1'),
+//       port: env.int('DATABASE_PORT'),
+//       ssl: { rejectUnauthorized: env('DATABASE_SSL', false) === 'true' },
 
-      // эти значения можно взять из ссылки const { database, user, password } = parse(env('DATABASE_URL'))
-      database: env('DATABASE_NAME', 'strapi'),
-      user: env('DATABASE_USERNAME', 'strapi'),
-      password: env('DATABASE_PASSWORD', 'strapi'),
+//       // эти значения можно взять из ссылки const { database, user, password } = parse(env('DATABASE_URL'))
+//       database: env('DATABASE_NAME', 'strapi'),
+//       user: env('DATABASE_USERNAME', 'strapi'),
+//       password: env('DATABASE_PASSWORD', 'strapi'),
 
       
-    },
-    debug: false
-  }
-})
+//     },
+//     debug: false
+//   }
+// })
 
 // const { parse } = require('pg-connection-string')
 // module.exports = ({ env }) => {
