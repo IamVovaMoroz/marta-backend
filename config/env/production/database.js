@@ -28,7 +28,7 @@ module.exports = ({ env }) => ({
     client: 'postgres',
     connection: {
       host: env('DATABASE_HOST', '127.0.0.1'),
-      port: env.int('DATABASE_PORT', 5432),
+      port: env.int('DATABASE_PORT'),
       ssl: { rejectUnauthorized: env('DATABASE_SSL', false) === 'true' },
 
       // эти значения можно взять из ссылки const { database, user, password } = parse(env('DATABASE_URL'))
